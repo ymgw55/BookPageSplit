@@ -1,8 +1,8 @@
 # BookPageSplit
 
-This repository provides a script to determine the part of a book to be assigned in reading circle. 
+This repository provides a script to determine the part of a book to be assigned in a reading circle. 
 
-## package
+## Package
 This repository use [Python Fire](https://github.com/google/python-fire). Install as follows:
 
 ```bash
@@ -163,5 +163,5 @@ As an example, here is the contents of the file named `results/An_Introduction_t
 
 ```
 
-## contribution
+## Contribution
 Everyone is welcome to contribute. 
