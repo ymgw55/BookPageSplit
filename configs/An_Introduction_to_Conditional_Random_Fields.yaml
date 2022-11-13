@@ -1,0 +1,102 @@
+sections:
+  - title: Introduction
+    start: 268
+    sec: 1
+    sub: 0
+  - title: Implementation Details
+    start: 271
+    sec: 1
+    sub: 1
+  - title: Modeling
+    start: 272
+    sec: 2
+    sub: 0
+  - title: Graphical Modeling
+    start: 272
+    sec: 2
+    sub: 1
+  - title: Generative versus Discriminative Models
+    start: 278
+    sec: 2
+    sub: 2
+  - title: Linear-chain CRFs
+    start: 286
+    sec: 2
+    sub: 3
+  - title: General CRFs
+    start: 290
+    sec: 2
+    sub: 4
+  - title: Feature Engineering
+    start: 293
+    sec: 2
+    sub: 5
+  - title: Examples
+    start: 298
+    sec: 2
+    sub: 6
+  - title: Applications of CRFs
+    start: 306
+    sec: 2
+    sub: 7
+  - title: Notes on Terminology
+    start: 308
+    sec: 2
+    sub: 8
+  - title: Overview of Algorithm
+    start: 310
+    sec: 3
+    sub: 0
+  - title: Inference
+    start: 313
+    sec: 4
+    sub: 0
+  - title: Linear-Chain CRFs
+    start: 314
+    sec: 4
+    sub: 1
+  - title: Inference in Graphical Models
+    start: 318
+    sec: 4
+    sub: 2
+  - title: Implementation Concerns
+    start: 328
+    sec: 4
+    sub: 3
+  - title: Parameter Estimation
+    start: 331
+    sec: 5
+    sub: 0 
+  - title: Maximum Likelihood
+    start: 332
+    sec: 5
+    sub: 1
+  - title: Stochastic Gradient Methods
+    start: 341
+    sec: 5
+    sub: 2
+  - title: Parallelism
+    start: 343
+    sec: 5
+    sub: 3
+  - title: Approximate Training
+    start: 343
+    sec: 5
+    sub: 4
+  - title: Implementation Concerns
+    start: 350
+    sec: 5
+    sub: 5
+  - title: Related Work and Future Directions 
+    start: 352
+    sec: 6
+    sub: 0
+  - title: Related Work
+    start: 352
+    sec: 6
+    sub: 1
+  - title: Frontier Areas
+    start: 359
+    sec: 6
+    sub: 2
+end: 362
