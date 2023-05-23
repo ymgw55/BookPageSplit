@@ -115,12 +115,8 @@ def main(config_path, n, show_pages=True):
                 title, start, sec, sub = \
                     split['title'], split['start'], split['sec'], split['sub']
                 if show_pages:
-                    ljust = title + '  ' * (
-                        (max_len - get_east_asian_width_count(title)) // 2)
-                    ljust += f'{start}'
-                else:
-                    ljust = title
-                texts.append(f'{sec}.{sub} {ljust}')
+                    title += f' {start}'
+                texts.append(f'{sec}.{sub} {title}')
             texts.append('='*(max_len+10))
         text = '\n'.join(texts)
         print(text, file=f)
