@@ -1,0 +1,198 @@
+sections:
+  - title: 確率分布の比較
+    start: 1
+    sec: 1
+    sub: 1
+  - title: 三種類の問題設定
+    start: 2
+    sec: 1
+    sub: 2
+  - title: 最適輸送の直観的な理解
+    start: 5
+    sec: 1
+    sub: 3
+  - title: KLダイバージェンスとの比較を通した最適輸送の利点
+    start: 8
+    sec: 1
+    sub: 4
+  - title: 記法・数学的な準備
+    start: 15
+    sec: 1
+    sub: 5
+  - title: 本書の構成
+    start: 19
+    sec: 1
+    sub: 6
+  - title: 線形計画による定式化
+    start: 22
+    sec: 2
+    sub: 1
+  - title: 応用例
+    start: 40
+    sec: 2
+    sub: 2
+  - title: 最適輸送の双対問題
+    start: 47
+    sec: 2
+    sub: 3
+  - title: 最適輸送問題の最適解の疎性
+    start: 69
+    sec: 2
+    sub: 4
+  - title: 最小費用流問題と最適輸送問題の関係
+    start: 76
+    sec: 2
+    sub: 5
+  - title: エントロピー正則化つき最適輸送問題
+    start: 87
+    sec: 3
+    sub: 1
+  - title: 対数領域シンクホーンアルゴリズム
+    start: 93
+    sec: 3
+    sub: 2
+  - title: シンクホーンアルゴリズム
+    start: 98
+    sec: 3
+    sub: 3
+  - title: シンクホーンアルゴリズムにより得た近似解を主問題の解に変換する
+    start: 104
+    sec: 3
+    sub: 4
+  - title: シンクホーンアルゴリズムの大域収束性
+    start: 109
+    sec: 3
+    sub: 5
+  - title: 微分可能最適輸送：最適値を最適化する
+    start: 126
+    sec: 3
+    sub: 6
+  - title: シンクホーンダイバージェンス
+    start: 138
+    sec: 3
+    sub: 7
+  - title: エントロピー正則化なし問題への利用
+    start: 143
+    sec: 3
+    sub: 8
+  - title: 敵対的ネットワークとは何か
+    start: 146
+    sec: 4
+    sub: 1
+  - title: コスト関数が距離の場合の最適輸送問題の双対問題
+    start: 147
+    sec: 4
+    sub: 2
+  - title: パラメータ化された関数を用いた解法
+    start: 151
+    sec: 4
+    sub: 3
+  - title: ワッサースタインGAN
+    start: 161
+    sec: 4
+    sub: 4
+  - title: 敵対的ネットワークのその他の応用例
+    start: 170
+    sec: 4
+    sub: 5
+  - title: 一次元の最適輸送
+    start: 175
+    sec: 5
+    sub: 1
+  - title: 一次元の最適輸送：一般の分布の場合
+    start: 182
+    sec: 5
+    sub: 2
+  - title: スライス法
+    start: 183
+    sec: 5
+    sub: 3
+  - title: 一般化スライス法
+    start: 189
+    sec: 5
+    sub: 4
+  - title: 最大化スライス法
+    start: 192
+    sec: 5
+    sub: 5
+  - title: 応用例
+    start: 196
+    sec: 5
+    sub: 6
+  - title: 木を用いたスライス法
+    start: 196
+    sec: 5
+    sub: 7
+  - title: ダイバージェンスとは
+    start: 210
+    sec: 6
+    sub: 1
+  - title: ファイ-ダイバージェンスと積分確率距離
+    start: 213
+    sec: 6
+    sub: 2
+  - title: 確率分布の弱収束
+    start: 234
+    sec: 6
+    sub: 3
+  - title: サンプル複雑性
+    start: 242
+    sec: 6
+    sub: 4
+  - title: 不均衡最適輸送の導入
+    start: 250
+    sec: 7
+    sub: 1
+  - title: 不均衡最適輸送の定式化
+    start: 252
+    sec: 7
+    sub: 2
+  - title: 一般化シンクホーンアルゴリズム
+    start: 259
+    sec: 7
+    sub: 3
+  - title: 固定サポートと自由サポートの定式化
+    start: 266
+    sec: 8
+    sub: 1
+  - title: 線形計画を用いた固定サポートの問題の解法
+    start: 272
+    sec: 8
+    sub: 2
+  - title: 劣勾配を用いた固定サポートの問題の解法
+    start: 273
+    sec: 8
+    sub: 3
+  - title: 交互最適化による自由サポートの問題の解法
+    start: 275
+    sec: 8
+    sub: 4
+  - title: エントロピー正則化による高速化
+    start: 277
+    sec: 8
+    sub: 5
+  - title: 応用例：図形モーフィング
+    start: 281
+    sec: 8
+    sub: 6
+  - title: 定式化
+    start: 285
+    sec: 9
+    sub: 1
+  - title: 最適化
+    start: 290
+    sec: 9
+    sub: 2
+  - title: 応用例：グリッドへの割り当て
+    start: 294
+    sec: 9
+    sub: 3
+  - title: ソフトウェア
+    start: 297
+    sec: 10
+    sub: 1
+  - title: 読書案内
+    start: 298
+    sec: 10
+    sub: 2
+end: 298

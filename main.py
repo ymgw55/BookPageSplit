@@ -1,6 +1,18 @@
 from pathlib import Path
 
 import yaml
+import unicodedata
+
+
+# https://note.nkmk.me/python-unicodedata-east-asian-width-count/
+def get_east_asian_width_count(text):
+    count = 0
+    for c in text:
+        if unicodedata.east_asian_width(c) in 'FWA':
+            count += 2
+        else:
+            count += 1
+    return count
 
 
 def loss(x, pages):
@@ -16,23 +28,36 @@ def objective(x, sections, n):
     m = len(sections)
 
     splits = [[] for _ in range(n)]
+    sec_count = [0]*n
     for p in range(n):
-        while cur < m and y < x:
+        sec_set = set()
+        while cur < m and y + sections[cur]['end'] - sections[cur]['start'] <= x:
             y += sections[cur]['end'] - sections[cur]['start']
             splits[p].append(sections[cur])
+            sec_set.add(sections[cur]['sec'])
             cur += 1
 
         pages[p] += y
+        sec_count[p] += len(sec_set)
         y = 0
 
         if cur == m:
             break
 
+    sec_count[-1] = 0
     for i in range(cur, m):
         pages[-1] += sections[i]['end'] - sections[i]['start']
-        splits[p].append(sections[i])
+        splits[-1].append(sections[i])
 
-    return loss(x, pages), splits
+    sec_set = set()
+    for sec in splits[-1]:
+        sec_set.add(sec['sec'])
+    sec_count[-1] += len(sec_set)
+
+    K = 2
+    L = loss(x, pages)
+    L += sum((K * max(c-1, 0))**2 for c in sec_count)
+    return L, splits, pages
 
 
 def main(config_path, n):
@@ -47,7 +72,7 @@ def main(config_path, n):
         assert sec_dict['start'] <= end
         sec_dict['end'] = end
         end = sec_dict['start']
-        max_len = max(max_len, len(sec_dict['title']))
+        max_len = max(max_len, get_east_asian_width_count(sec_dict['title']))
 
     lb = 1
     ub = 10**9
@@ -55,8 +80,8 @@ def main(config_path, n):
         left = (2*lb+ub) // 3
         right = (lb+2*ub) // 3
 
-        left_loss, left_splits = objective(left, sections, n)
-        right_loss, right_splits = objective(right, sections, n)
+        left_loss, left_splits, lpages = objective(left, sections, n)
+        right_loss, right_splits, rpages = objective(right, sections, n)
 
         if left_loss < right_loss:
             ub = right
@@ -65,29 +90,30 @@ def main(config_path, n):
 
     if left_loss < right_loss:
         splits = left_splits
+        pages = lpages
+        print(f'left: {left}')
     else:
         splits = right_splits
+        pages = rpages
+        print(f'right: {right}')
+    print(pages)
+
     name = Path(config_path).stem
     output_path = Path('results') / f'{name}_{n}splits.txt'
     with open(str(output_path), 'w') as f:
-
-        pages = [0]*n
-        for i in range(n):
-            if i < n - 1:
-                pages[i] = splits[i+1][0]['start'] - splits[i][0]['start']
-            else:
-                pages[i] = cfg['end'] - splits[i][0]['start']
 
         def order_n(i):
             return {1: '1st', 2: '2nd', 3: '3rd'}.get(i) or f'{i}th'
         
         texts = []
         for i, page in enumerate(pages):
-            texts.append(f'{order_n(i)}-split: about {page} pages')
+            texts.append(f'{order_n(i+1)}-split: about {page} pages')
             for split in splits[i]:
                 title, start, sec, sub = \
                     split['title'], split['start'], split['sec'], split['sub']
-                texts.append(f'{sec}.{sub} {title.ljust(max_len)} {start}')
+                ljust = \
+                    title + ' ' * (max_len - get_east_asian_width_count(title))
+                texts.append(f'{sec}.{sub} {ljust} {start}')
             texts.append('='*(max_len+10))
         text = '\n'.join(texts)
         print(text, file=f)
