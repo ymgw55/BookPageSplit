@@ -60,7 +60,7 @@ def objective(x, sections, n):
     return L, splits, pages
 
 
-def main(config_path, n):
+def main(config_path, n, show_pages=True):
     with open(config_path, 'r') as yml:
         cfg = yaml.safe_load(yml)
 
@@ -104,16 +104,23 @@ def main(config_path, n):
 
         def order_n(i):
             return {1: '1st', 2: '2nd', 3: '3rd'}.get(i) or f'{i}th'
-        
+
         texts = []
         for i, page in enumerate(pages):
-            texts.append(f'{order_n(i+1)}-split: about {page} pages')
+            if show_pages:
+                texts.append(f'{order_n(i+1)} Part, about {page} pages')
+            else:
+                texts.append(f'{order_n(i+1)} Part')
             for split in splits[i]:
                 title, start, sec, sub = \
                     split['title'], split['start'], split['sec'], split['sub']
-                ljust = \
-                    title + ' ' * (max_len - get_east_asian_width_count(title))
-                texts.append(f'{sec}.{sub} {ljust} {start}')
+                if show_pages:
+                    ljust = title + '  ' * (
+                        (max_len - get_east_asian_width_count(title)) // 2)
+                    ljust += f'{start}'
+                else:
+                    ljust = title
+                texts.append(f'{sec}.{sub} {ljust}')
             texts.append('='*(max_len+10))
         text = '\n'.join(texts)
         print(text, file=f)
